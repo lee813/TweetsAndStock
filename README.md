@@ -7,3 +7,4 @@
     - Tensorflow.js
     - AntD, AndV
     - Firebase
+    - Oracle Cloud
