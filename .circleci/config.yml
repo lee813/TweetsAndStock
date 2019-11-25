@@ -28,6 +28,6 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "tweets-and-stock/package-lock.json" }}
           paths:
             - ./node_modules
-      - run: # run tests
-          name: test
-          command: npm test
+      - run: # run build
+          name: run build
+          command: npm run build
