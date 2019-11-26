@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
+import Criterion from './Criterion'
 import './App.css';
 
 const { Header, Content, Footer } = Layout;
@@ -22,12 +22,7 @@ function App() {
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
+      <Criterion />
     </Content>
     <Footer style={{ textAlign: 'center' }}>Tweets and Stock, Copyright by Frank Lee.</Footer>
   </Layout>

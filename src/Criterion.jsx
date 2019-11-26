@@ -1,9 +1,17 @@
 import React from 'react'
-import {Select} from 'antd'
-
+import {Select, Col, Row, Input} from 'antd'
+import {loadTweets} from './Services/services'
 
 export default function Criterion(){
+    loadTweets()
     return (
-        <Select />
+        <Col>
+            <Row>
+                <Select />
+            </Row>
+            <Row>
+                <Input />
+            </Row>
+        </Col>
     )
 }
