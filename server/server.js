@@ -1,7 +1,6 @@
-const express = require('express')
+const http = require('http');
 const Twitter = require('twitter')
-const app = express()
-const port = 3001
+
 
 
 const twitterClient = new Twitter({
@@ -12,24 +11,26 @@ const twitterClient = new Twitter({
 });
 
 
-app.get('/getTwitter', (req, res) => {
-
-    var params = { screen_name: "nodejs" };
-    console.log('-------');
+http.createServer(function (req, res) {
+ res.writeHead(200, {'Content-Type': 'application/json'}); // http header
+ const {url} = req;
+ if(url ==='/getTwitter'){
+    const params = { screen_name: "nodejs" };
     twitterClient.get("statuses/user_timeline", params, function(
         error,
         tweets,
         response
     ) {
         if (!error) {
-            console.log(tweets);
-            res.send(tweets)
+            // console.log(tweets);
+            res.write(JSON.stringify(tweets))
+            res.end()
         } else {
-            console.log(error)
+            res.write(JSON.stringify(error))
+            res.end()
         }
     })
-
-    
-})
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+ }
+}).listen(3001, () => {
+ console.log("server start at port 3001"); //the server object listens on port 3000
+});
